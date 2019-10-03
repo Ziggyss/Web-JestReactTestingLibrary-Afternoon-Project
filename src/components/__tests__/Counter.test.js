@@ -10,7 +10,7 @@ beforeEach(() => {
   tools = rtl.render(<Counter user='Peter' />);
 });
 
-describe('Counter component', () => {
+  describe('Counter component', () => {
   it('can debug the output', () => {
     tools.debug();
   });
@@ -41,16 +41,21 @@ describe('Counter component', () => {
     const decButton = tools.queryByTestId('decButton');
 
     rtl.fireEvent.click(decButton);
+    expect(tools.queryByText(/0/)).not.toBeInTheDocument();
     expect(tools.queryByText(/-1/)).toBeInTheDocument();
     
   });
 
   it('can reset the count clicking rest', () => {
-    // implement
+    const resetButton = tools.queryByTestId('resetButton');
+
+    rtl.fireEvent.click(resetButton);
+    expect(tools.queryByText(/0/)).toBeInTheDocument();
   });
 
+
   it('prevents the count from going over an upper limit', () => {
-    // implement
+    
   });
 
   it('prevents the count from going under a lower limit', () => {
