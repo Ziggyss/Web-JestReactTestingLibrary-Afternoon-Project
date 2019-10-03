@@ -35,4 +35,8 @@ export function personMaker(name, age) {
   };
 }
 
-// BUILD YOUR OWN UTILITY FUNCTIONS AND TEST THEM OUT!
+export function findTheSquare(number) {
+  if (typeof number !== "number") {
+    throw new Error("numbers only in this function");
+  } else return number * number;
+}

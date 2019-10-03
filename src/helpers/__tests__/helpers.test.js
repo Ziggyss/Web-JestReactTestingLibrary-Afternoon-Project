@@ -45,4 +45,13 @@ describe("personMaker", () => {
   it("throws an error if age is less than 0", () => {
     expect(() => helpers.personMaker("lisa", -5)).toThrow();
   });
+
+  describe("findTheSquare", () => {
+    it("only takes a number as a parameter", () => {
+      expect(() => helpers.reverseNumber("lisa")).toThrow();
+    });
+    it("returns the square of a whole number", () => {
+      expect(helpers.findTheSquare(5)).toBe(25);
+    });
+  });
 });
