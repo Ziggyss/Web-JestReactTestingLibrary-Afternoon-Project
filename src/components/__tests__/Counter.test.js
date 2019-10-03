@@ -69,14 +69,24 @@ describe("Counter component", () => {
       rtl.fireEvent.click(decButton);
     }
     expect(tools.queryByText(/-5/)).toBeInTheDocument();
-    expect(tools.quertyByText(/-6/)).not.toBeInTheDocument();
+    expect(tools.queryByText(/-6/)).not.toBeInTheDocument();
   });
 
   it("shows a warning once we hit the upper limit of the counter", () => {
-    
+    const incButton = tools.queryByTestId("incButton");
+
+    for (let n = 0; n < 10; n++) {
+      rtl.fireEvent.click(incButton);
+    }
+    expect(tools.queryByTestId("upperWarning")).toBeInTheDocument();
   });
 
   it("shows a warning once we hit the lower limit of the counter", () => {
-    // implement
+    const decButton = tools.queryByTestId("decButton");
+
+    for (let n = 0; n < 10; n++) {
+      rtl.fireEvent.click(decButton);
+    }
+    expect(tools.queryByTestId("lowerWarning")).toBeInTheDocument();
   });
 });
